@@ -72,8 +72,8 @@ var XHR = extend(Class(Transport, {
   }
 }), {
   isUsable: function(dispatcher, endpoint, callback, context) {
-    var usable = (navigator.product === 'ReactNative')
-              || URI.isSameOrigin(endpoint);
+    // RN Bug: product has been set to Gecko.  
+    var usable = true;
 
     callback.call(context, usable);
   }
